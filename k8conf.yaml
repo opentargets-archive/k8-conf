@@ -12,7 +12,7 @@
     deployment-envs:
       API_VERSION:
         file: app/config/live.json
-        path: "apiVersion"
+        json-path: "apiVersion"
 
     service: https://raw.githubusercontent.com/opentargets/k8-conf/master/service/webapp_staging.yml
     repository: eu.gcr.io/open-targets/webapp
