@@ -20,7 +20,7 @@ spec:
           secretName: rest-auth
       containers:
       - name: rest-api
-        image: "$GCR_REPO:$GIT_COMMIT"
+        image: "$CONTAINER_REPO:$GIT_COMMIT"
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
@@ -28,7 +28,7 @@ spec:
             path: /api/latest/public/utils/ping
             port: 8008
           initialDelaySeconds: 30
-          timeoutSeconds: 1
+          periodSeconds: 10
         securityContext:
           privileged: true
         volumeMounts:

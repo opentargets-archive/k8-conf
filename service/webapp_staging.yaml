@@ -1,0 +1,23 @@
+# to run:
+# DEPLOY_BRANCH=hp-new envsubst < services/webapp-branch.yml | kubectl create -f -
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-$GIT_BRANCH
+  labels:
+    app: webapp
+    branch: $GIT_BRANCH
+    environment: staging
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    protocol: TCP
+    name: http
+  - port: 443
+    protocol: TCP
+    name: https
+  selector:
+    app: webapp
+    branch: $GIT_BRANCH
+    environment: staging

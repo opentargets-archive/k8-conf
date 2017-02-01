@@ -1,0 +1,46 @@
+# to run:
+# DEPLOY_BRANCH=hp-new DEPLOY_RESTAPI_BRANCH="api-beta:8008" envsubst < deployments/webapp-branch.yml | kubectl create -f -
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: webapp-$GIT_BRANCH
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: webapp
+        branch: $GIT_BRANCH
+        commit: $GIT_COMMIT
+        environment: staging
+    spec:
+      volumes:
+      - name: cert-volume
+        secret:
+          secretName: ssl-proxy-secret
+      containers:
+      - name: webapp
+        image:  "$CONTAINER_REPO:$GIT_COMMIT"
+        imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            # Path to probe; should be cheap, but representative of typical behavior
+            path: /index.html
+            port: 443
+            scheme: https
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        ports:
+        - containerPort: 443
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /usr/share/nginx_crt
+          name: cert-volume
+        env:
+        - name: ENSEMBL_API_KEY
+          value: $ENSEMBL_API_KEY
+        - name: REST_API_SCHEME
+          value: "http"
+        - name: REST_API_SERVER
+          # we are pointing to the latest master rest-api in this case
+          value: api-$API_VERSION
