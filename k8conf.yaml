@@ -1,18 +1,18 @@
 # repository to services mapping file
-#- repo_name:
+# repo_name:
 #    deployment: url
 #    service: url
 #    repository: docker repo
--  rest_api:
-    deployment: https://raw.githubusercontent.com/opentargets/k8-conf/master/deployment/rest-api_staging.yml
-    service: https://raw.githubusercontent.com/opentargets/k8-conf/master/service/rest-api_staging.yml
-    repository: eu.gcr.io/open-targets/rest_api
--  webapp:
-    deployment: https://raw.githubusercontent.com/opentargets/k8-conf/master/deployment/webapp_staging.yml
-    deployment-envs:
-      API_VERSION:
-        file: app/config/live.json
-        json-path: "apiVersion"
+rest_api:
+  deployment: https://raw.githubusercontent.com/opentargets/k8-conf/master/deployment/rest-api_staging.yml
+  service: https://raw.githubusercontent.com/opentargets/k8-conf/master/service/rest-api_staging.yml
+  repository: eu.gcr.io/open-targets/rest_api
+webapp:
+  deployment: https://raw.githubusercontent.com/opentargets/k8-conf/master/deployment/webapp_staging.yml
+  deployment-envs:
+    API_VERSION:
+      file: app/config/live.json
+      json-path: "apiVersion"
 
-    service: https://raw.githubusercontent.com/opentargets/k8-conf/master/service/webapp_staging.yml
-    repository: eu.gcr.io/open-targets/webapp
+  service: https://raw.githubusercontent.com/opentargets/k8-conf/master/service/webapp_staging.yml
+  repository: eu.gcr.io/open-targets/webapp
