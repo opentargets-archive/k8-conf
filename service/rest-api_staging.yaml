@@ -8,7 +8,14 @@ metadata:
     tag: $GIT_COMMIT
     environment: staging
 spec:
+  type: LoadBalancer
   ports:
+  - port: 80
+    protocol: TCP
+    name: http
+  - port: 443
+    protocol: TCP
+    name: https
   - port: 8008
     protocol: TCP
   selector:
