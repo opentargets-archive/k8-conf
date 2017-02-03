@@ -5,7 +5,6 @@ metadata:
   labels:
     app: rest-api
     branch: $GIT_BRANCH
-    tag: $GIT_COMMIT
     environment: staging
 spec:
   type: LoadBalancer
@@ -17,6 +16,8 @@ spec:
     protocol: TCP
     name: https
   - port: 8008
+    protocol: TCP
+  - port: 8009
     protocol: TCP
   selector:
     app: rest-api

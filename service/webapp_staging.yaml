@@ -7,7 +7,6 @@ metadata:
   labels:
     app: webapp
     branch: $GIT_BRANCH
-    tag: $GIT_COMMIT
     environment: staging
 spec:
   type: LoadBalancer
@@ -21,5 +20,4 @@ spec:
   selector:
     app: webapp
     branch: $GIT_BRANCH
-    tag: $GIT_COMMIT
     environment: staging
