@@ -17,8 +17,10 @@ spec:
     name: https
   - port: 8008
     protocol: TCP
+    name: althttp
   - port: 8009
     protocol: TCP
+    name: althttps
   selector:
     app: rest-api
     branch: $GIT_BRANCH
