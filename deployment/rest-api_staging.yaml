@@ -37,8 +37,6 @@ spec:
         env:
         - name: OPENTARGETS_API_CONFIG
           value: "production"
-        - name: SECRET_KEY
-          valueFrom:
-            secretKeyRef:
-              name: apisecretkey
-              key: secret_key
+        - name: ELASTICSEARCH_URL
+          value: "http://elasticsearch:9200"
+
