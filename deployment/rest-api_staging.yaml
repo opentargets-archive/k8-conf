@@ -39,4 +39,8 @@ spec:
           value: "production"
         - name: ELASTICSEARCH_URL
           value: "http://elasticsearch:9200"
-
+        #set very high usage limits
+        - name: USAGE_LIMIT_DEFAULT_SHORT
+          value: 1000000
+        - name: USAGE_LIMIT_DEFAULT_LONG
+          value: 100000000
