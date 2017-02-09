@@ -1,18 +1,25 @@
 # repository to services mapping file
-# repo_name:
-#    deployment: url
-#    service: url
+# environment_name:
+#   repo_name:
+#    deployment:
+#     url: url to deplyment yaml
+#     var-file: if needed local file in the repo with additional variable to substitute in the deployment yaml file
+#    service:
+#     url: url to service yaml
+#     var-file: if needed local file in the repo with additional variable to substitute in the service yaml file
 #    repository: docker repo
-rest_api:
-  deployment: https://raw.githubusercontent.com/opentargets/k8-conf/master/deployment/rest-api_staging.yaml
-  service: https://raw.githubusercontent.com/opentargets/k8-conf/master/service/rest-api_staging.yaml
-  repository: eu.gcr.io/open-targets/rest_api
-webapp:
-  deployment: https://raw.githubusercontent.com/opentargets/k8-conf/master/deployment/webapp_staging.yaml
-  deployment-envs:
-    API_VERSION:
-      file: app/config/live.json
-      json-path: "apiVersion"
 
-  service: https://raw.githubusercontent.com/opentargets/k8-conf/master/service/webapp_staging.yaml
-  repository: eu.gcr.io/open-targets/webapp
+staging:
+  rest_api:
+    deployment: 
+      url: https://raw.githubusercontent.com/opentargets/k8-conf/master/deployment/rest-api_staging.yaml
+    service: 
+      url: https://raw.githubusercontent.com/opentargets/k8-conf/master/service/rest-api_staging.yaml
+    repository: eu.gcr.io/open-targets/rest_api
+  webapp:
+    deployment: 
+      url: https://raw.githubusercontent.com/opentargets/k8-conf/master/deployment/webapp_staging.yaml
+      var-file: cd.yaml
+    service: 
+      url: https://raw.githubusercontent.com/opentargets/k8-conf/master/service/webapp_staging.yaml
+    repository: eu.gcr.io/open-targets/webapp
