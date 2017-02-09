@@ -20,7 +20,7 @@ staging:
   webapp:
     deployment: 
       url: https://raw.githubusercontent.com/opentargets/k8-conf/master/deployment/webapp_staging.yaml
-      var-file: cd.yaml
+      var_file: cd.yaml
       repository: eu.gcr.io/open-targets/webapp
     service: 
       url: https://raw.githubusercontent.com/opentargets/k8-conf/master/service/webapp_staging.yaml
