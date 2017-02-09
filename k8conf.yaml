@@ -4,22 +4,24 @@
 #    deployment:
 #     url: url to deplyment yaml
 #     var-file: if needed local file in the repo with additional variable to substitute in the deployment yaml file
+#     repository: docker repo to deploy
 #    service:
 #     url: url to service yaml
 #     var-file: if needed local file in the repo with additional variable to substitute in the service yaml file
-#    repository: docker repo
+#    
 
 staging:
   rest_api:
     deployment: 
       url: https://raw.githubusercontent.com/opentargets/k8-conf/master/deployment/rest-api_staging.yaml
+      repository: eu.gcr.io/open-targets/rest_api
     service: 
       url: https://raw.githubusercontent.com/opentargets/k8-conf/master/service/rest-api_staging.yaml
-    repository: eu.gcr.io/open-targets/rest_api
   webapp:
     deployment: 
       url: https://raw.githubusercontent.com/opentargets/k8-conf/master/deployment/webapp_staging.yaml
       var-file: cd.yaml
+      repository: eu.gcr.io/open-targets/webapp
     service: 
       url: https://raw.githubusercontent.com/opentargets/k8-conf/master/service/webapp_staging.yaml
-    repository: eu.gcr.io/open-targets/webapp
+    
