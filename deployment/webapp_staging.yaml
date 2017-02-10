@@ -28,8 +28,8 @@ spec:
 #            path: /index.html
 #            port: 443
 #            scheme: HTTPS
-          initialDelaySeconds: 30
-          periodSeconds: 10
+#          initialDelaySeconds: 30
+#          periodSeconds: 10
         ports:
         - containerPort: 443
         - containerPort: 80
