@@ -27,7 +27,7 @@ spec:
             # Path to probe; should be cheap, but representative of typical behavior
             path: /index.html
             port: 443
-            scheme: https
+            scheme: HTTPS
           initialDelaySeconds: 30
           periodSeconds: 10
         ports:
