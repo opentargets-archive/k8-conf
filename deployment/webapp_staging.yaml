@@ -26,7 +26,7 @@ spec:
         - containerPort: 443
         - containerPort: 80
         volumeMounts:
-        - mountPath: /usr/share/nginx_crt
+        - mountPath: /usr/share/nginx
           name: cert-volume
         env:
         - name: ENSEMBL_API_KEY
