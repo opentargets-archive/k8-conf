@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: api-$GIT_BRANCH
   labels:
-    app: rest-api
+    app: rest_api
     branch: $GIT_BRANCH
     environment: staging
 spec:
