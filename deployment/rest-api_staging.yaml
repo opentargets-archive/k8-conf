@@ -9,7 +9,7 @@ spec:
   template:
     metadata:
       labels:
-        app: rest-api
+        app: rest_api
         branch: $GIT_BRANCH
         commit: $GIT_COMMIT
         environment: staging
