@@ -22,6 +22,6 @@ spec:
     protocol: TCP
     name: althttps
   selector:
-    app: rest-api
+    app: rest_api
     branch: $GIT_BRANCH
     environment: staging
